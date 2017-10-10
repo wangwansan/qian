@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>tomcat闪退，手动无法启动，针对tomcat6,7,8</title>
+  <style type="text/css">
+    .contain{
+        width:900px;
+        min-height:300px;
+        background-color:#f3f3f3;
+        margin:0 auto;
+        padding:20px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="contain">
+<p>
+  不要配置什么环境变量，直接下载解压版的，打开start.bat，如果闪退，照办，没错的：
+在bin\startup.bat文件中的第一行前面加入：
+SET JAVA_HOME=(JDK目录)
+SET CATALINA_HOME=(解压后Tomcat的目录) 
+就像这样，不用到bin目录下
+---------------------------------------------
+SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0_66
+SET CATALINA_HOME=D:\develop\apache-tomcat-8.0.14
+------------------------------------------------
+这样，运行startup.bat就可以正常启动tomcat服务器，如果想点击shutdown.bat关闭服务器，同样在shutdown.bat文件中加入上面的两行即可。
+</p>
+  </div>
+</body>
+</html>
