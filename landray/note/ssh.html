@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ssh</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		html,body{
+			margin: 0;
+			padding: 0;
+			background: #eee;
+		}
+		h3{
+			margin-top: 80px;
+		}
+
+		.contain{
+			width:800px;
+			background-color: #fff;
+			padding: 10px 50px 10px 50px;
+			margin: 0 auto;
+			font-size: 14px;
+		}
+		.ref{
+			font-size: 10px;
+			color: #aaa;
+
+		}
+	</style>
+</head>
+<body>
+
+	
+	<div class="contain">
+		<h1>SSH框架总结</h1>
+	<p class="ref"><span style="padding-bottom:50px;font-size: 14px;color: black; display: inline-block;">转载自：</span>http://blog.csdn.net/shan9liang/article/details/8803989</p>
+		<p>首先，SSH不是一个框架，而是多个框架（struts+spring+hibernate）的集成，是目前较流行的一种Web应用程序开源集成框架，用于构建灵活、易于扩展的多层Web应用程序。</p>
+ 
+		<p>集成SSH框架的系统从职责上分为四层：表示层、业务逻辑层、数据持久层和域模块层（实体层）。</p>
+ 
+		<p>Struts作为系统的整体基础架构，负责MVC的分离，在Struts框架的模型部分，控制业务跳转，利用Hibernate框架对持久层提供支持。Spring一方面作为一个轻量级的IoC容器，负责查找、定位、创建和管理对象及对象之间的依赖关系，另一方面能使Struts和Hibernate更好地工作。</p>
+		<p><img src="http://img.my.csdn.net/uploads/201304/15/1366010139_2255.png" style="width: 700px;"></p>
+		
+		<h3>由SSH构建系统的基本业务流程是：</h3>
+ 
+		<p>1、在表示层中，首先通过JSP页面实现交互界面，负责传送请求(Request)和接收响应(Response)，然后Struts根据配置文件(struts-config.xml)将ActionServlet接收到的Request委派给相应的Action处理。</p>
+		<p>2、在业务层中，管理服务组件的Spring IoC容器负责向Action提供业务模型(Model)组件和该组件的协作对象数据处理(DAO)组件完成业务逻辑，并提供事务处理、缓冲池等容器组件以提升系统性能和保证数据的完整性。</p>
+		<p>3、在持久层中，则依赖于Hibernate的对象化映射和数据库交互，处理DAO组件请求的数据，并返回处理结果。</p>
+ 
+		<p>采用上述开发模型，不仅实现了视图、控制器与模型的彻底分离，而且还实现了业务逻辑层与持久层的分离。这样无论前端如何变化，模型层只需很少的改动，并且数据库的变化也不会对前端有所影响，大大提高了系统的可复用性。而且由于不同层之间耦合度小，有利于团队成员并行工作，大大提高了开发效率。</p>
+
+
+		<h3>下面我们再详细看一下组成SSH的这三个框架</h3>
+		<h4>一、Spring</h4>
+			<h4>1、什么是Spring？</h4>
+			<p>简单来说，Spring是一个轻量级的控制反转（IoC）和面向切面（AOP）的容器框架。</p>
+ 
+			<h4>2、Spring的特性</h4>
+			<p style="text-align: center;"><img src="http://img.my.csdn.net/uploads/201304/15/1366009800_5913.png"></p>
+			<p>所有Spring的这些特征使你能够编写更干净、更可管理、并且更易于测试的代码</p>
+			<p>
+				<h4>为什么使用Spring？</h4>
+				Spring的以上特性使得开发人员使用基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅限于服务器端的开发。从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从Spring中受益。
+			</p>
+			<p>
+				<h4>二、Struts</h4>
+				<h4>1、什么是Struts？</h4>
+				它通过采用 Java Servlet/JSP 技术，实现了基于Java EEWeb应用的MVC设计模式的应用框架，是MVC经典设计模式中的一个经典产品。
+			</p>
+			<p>
+				<h4>2、Struts1的核心构成</h4>
+				<img src="http://img.my.csdn.net/uploads/201304/15/1366011574_3130.png">
+			</p>
+			<p>在 Struts1 中，由一个名为 ActionServlet 的 Servlet 充当 控制器(Controller)的角色，根据描述模型、视图、控制器对应关系的 struts-config.xml 的配置文件，转发视图(View)的请求，组装响应数据模型（Model）。</p>
+			<p>在 MVC 的模型（Model）部分，经常划分为两个主要子系统（系统的内部数据状态与改变数据状态的逻辑动作），这两个概念子系统分别具体对应 Struts 1里的 ActionForm 与 Action 两个需要继承实现超类。在这里，Struts 1可以与各种标准的数据访问技术结合在一起，包括Enterprise Java Beans（EJB）, JDBC 与 JNDI。</p>
+
+			<p>
+				在 Struts 1的视图（View） 端，除了使用标准的JavaServer Pages（JSP）以外，还提供了大量的标签库使用，同时也可以与其他表现层组件技术（产品）进行整合，比如 Velocity Templates，XSLT 等。
+			</p>
+
+		<p>
+			通过应用 Struts 的框架，最终用户可以把大部分的关注点放在自己的业务逻辑（Action）与 映射关系的配置文件（struts-config.xml）中。
+		</p>
+		<p>
+			<h4>3、Struts1的基本执行流程</h4>
+			详见<a href="http://blog.csdn.net/shan9liang/article/details/8688568">《STRUTS基本工作流程》</a>
+		</p>
+
+
+		<p>
+			<h4>4、什么是struts2</h4>
+			Struts 2是Struts的下一代产品，是在 struts 1和WebWork的技术基础上进行了合并的全新的Struts 2框架。其全新的Struts 2的体系结构与Struts 1的体系结构差别巨大。Struts 2以WebWork为核心，采用拦截器的机制来处理用户的请求，这样的设计也使得业务逻辑控制器能够与ServletAPI完全脱离开，所以Struts 2可以理解为WebWork的更新产品
+		</p>
+
+
+		<p>
+			<h4>5、strut2的体系结构</h4>
+			<img src="http://img.my.csdn.net/uploads/201304/25/1366853714_9844.png">
+		</p>
+
+
+		<p>
+			<h4>解析：</h4>
+			当Web容器收到请求（HttpServletRequest）它将请求传递给一个标准的的过滤链包括  流程（ActionContextCleanUp）过滤器，然后经过Other filters(SiteMesh ,etc),<br/>
+			接下来需要调用FilterDispatcher核心控制器，然后它调用ActionMapper确定请求那个Action，ActionMapper返回一个收集Action详细信息的ActionMaping对象。<br/>
+			接下来FilterDispatcher将控制权委派给ActionProxy,ActionProxy调用配置管理器(ConfigurationManager) <br/>从配置文件中读取配置信息(struts.xml)，然后创建ActionInvocation对象，ActionInvocation在调用Action之前会依次的调用所用配置拦截器（Interceptor N） 一旦执行结果返回结果字符串ActionInvocation负责查找结果字符串对应的(Result）然后执行这个Result Result会调用一些模版（JSP）<br/>
+来呈现页面，之后拦截器(Interceptor N)会在被执行(顺序和Action执行之前相反)最后响应(HttpServletResponse)被返回在web.xml中配置的那些过滤器和（核心控制器）（FilterDispatcher）。
+		</p>
+
+
+		<p>
+			<h4>6、为什么使用Struts？</h4>
+			首先，Struts 是MVC的一种实现，它将 Servlet和 JSP 标记（属于 J2EE 规范）用作实现的一部分。Struts继承了MVC的各项特性，并根据J2EE的特点，做了相应的变化与扩展，减弱了业务逻辑接口和数据接口之间的耦合，以及让视图层更富于变化
+		</p>
+		<p>另外， struts具有页面导航功能，使系统的脉络更加清晰。通过一个配置文件，即可把握整个系统各部分之间的联系，这对于后期的维护有着莫大的好处。尤其是当另一批开发者接手这个项目时，这种优势体现得更加明显。
+ </p>
+
+		<p>
+			<h4>7、 Struts1和Struts2的区别</h4>
+			详见<a href="http://blog.csdn.net/bjyfb/article/details/8679523">《Struts1 和 Struts2》</a>
+		</p>
+
+
+		<p>
+			<h4>三、Hibernate</h4>
+			<h4>1、什么是Hibernate？</h4>
+			Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任
+		</p>
+
+		<p>
+			<h4>2、Hibernate核心构成</h4>
+			<img src="http://img.my.csdn.net/uploads/201304/15/1366013335_2950.png">
+		</p>
+
+		<p>
+			<h4>3、Hibernate基本执行流程</h4>
+			<img src="http://img.my.csdn.net/uploads/201304/15/1366013386_8955.png">
+		</p>
+
+
+		<p>
+			<h4>为什么使用Hibernate？</h4>
+			<ol>
+				<li>
+					对JDBC访问数据库的代码做了封装，大大简化了数据访问层繁琐的重复性代码。
+				</li>
+				<li>
+					Hibernate是一个优秀的ORM实现。他很大程度的简化DAO层的编码工作，将软件开发人员从大量相同的数据持久层相关编程工作中解放出来，使开发更对象化了。
+				</li>
+				<li>
+					移植性好，支持各种数据库，如果换个数据库只要在配置文件中变换配置就可以了，不用改变hibernate代码。
+				</li>
+				<li>
+					支持透明持久化，因为hibernate操作的是纯粹的（pojo）java类，没有实现任何接口，没有侵入性。所以说它是一个轻量级框架。
+				</li>
+			</ol>
+		</p>
+		<p>
+			<h2>最后附上SSH1和SSH2框架搭建的实例，点击即可下载</h2>
+			<span style="display: block;">
+				<a href="http://download.csdn.net/download/shan9liang/5298211">SSH1框架搭建实例（spring2+struts1+hibernate3）</a>采用旧版本，详见代码中注释
+			</span>
+			<span style="display: block;">
+				<a href="http://download.csdn.net/download/shan9liang/5298185">SSH2框架搭建实例（spring3.2+strust2.3.4+hibernate4.2）</a>全部采用最新版本，详见代码中注释
+			</span>
+		</p>
+</div>
+</body>
+</html>
