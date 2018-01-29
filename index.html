@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="https://cdn-img.easyicon.net/favicon.ico" />
+	<title>qianの主页</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		html,body{
+			margin: 0;
+			padding: 0;
+			/*background-color: lightgray;*/
+		}
+		.header{
+			width: 100%;
+			height: 50px;
+			background-color: white;
+			top: 0;
+			position: absolute;
+		}
+		.header_1{
+			width: 1000px;
+			height: 48px;
+			margin: 0 auto;
+			background-color: white;
+		}
+		.logo{
+			width: 180px;
+			font-family: 微软雅黑;
+			font-style: italic;;
+			color:rgba(0,0,0,0.5);
+			margin-left: 10px;
+			font-size: 24px;
+			line-height: 50px;
+			vertical-align: middle;
+			font-weight: 900;
+			user-select: none;
+		}
+		ul,li{
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: inline;
+		}
+		.nav_menu{
+			width: 500px;
+			height: 48px;
+			color: black;
+			line-height: 48px;
+			vertical-align: middle;
+			font-weight: 700;
+		
+		}
+		.nav_menu > ul{
+			padding-right: 10px;
+			height: 48px;
+		}
+		.nav_menu > ul li{
+			
+			width: 50px;
+			height: 48px;
+			display: inline-block;
+		}
+		.header_line{
+			width: inherit;
+			height: 2px;
+			background-color: orange;
+		}
+		.frame{
+			width: 1000px;
+			background-color: white;
+			top: 55px;
+			margin: 0 auto;
+			position: relative;
+			z-index: -1;
+		}
+		.frame_left{
+			width: 195px;
+			height: 360px;
+			/*background-color: rgba(0,0,0,0.5);*/
+		}
+		.frame_center{
+			width: 60%;
+			min-height: 500px;
+			margin-left: 5px;
+			/*background-color: rgba(0,0,0,0.5);*/
+		}
+		.frame_right{
+			width: 195px;
+			height: 360px;
+			margin-left: 5px;
+			/*background-color: rgba(0,0,0,0.5);*/
+		}
+		.lf{
+			float: left;
+		}
+		.rf{
+			float: right;
+		}
+		.frame > .frame_center >.contents{
+			width: 598px;
+			/*height: 100px;*/
+			margin: 5px auto;
+			background-color: white;
+			
+			box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+		}
+		.ct_text{
+			width: inherit;
+			min-height: 100px;
+			margin-top: 5px;
+			/*border-bottom: 2px solid orange;*/
+
+		}
+		.ct_text .title{
+			width: 578px;
+			height: 40px;
+			line-height: 40px;
+			vertical-align: middle;
+			font-weight: 900;
+			padding-left: 10px;
+			padding-right: 10px;
+			/*background-color: rgba(0,0,0,0.1);*/
+			box-shadow: 1px 2px 1px 0 rgba(0,0,0,0.1);
+			border-bottom: 1px solid lightgray;
+			cursor: pointer;
+		}
+		.ct_text .abstract{
+			width: 558px;
+			min-height: 40px;
+			padding: 5px 20px;
+			font-size: 14px;
+			font-family: 微软雅黑;
+			/*background-color: rgba(0,0,0,0.1);*/
+			
+		}
+
+		.ct_text .bt{
+			width: 598px;
+			height: 28px;
+			line-height: 28px;
+			font-size: 12px;
+			color: rgba(0,0,0,0.6);
+			/*background-color: rgba(0,0,0,0.1);*/
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+		}
+		
+		.ct_text span{
+			padding-left: 2px;
+			padding-right: 20px;
+			display: inline-block;
+		}
+		.footer{
+			bottom: 0;
+			width: 100%;
+			height: 50px;
+			position: absolute;
+			/*background-color: black;*/
+		}
+		a{
+			text-decoration: none;
+			color: rgba(0,0,0,0.5);
+		}
+	</style>
+</head>
+<body>
+	<nav class="header">
+		<div class="header_1">
+			<div class="logo lf"><a href="https://wangwansan.github.io/qian/">QianのBlog</a></div>
+			<div class="nav_menu rf">
+				<ul class="rf">
+					<li>主页</li>
+					<li>随笔</li>
+					<li>关于</li>
+					<li>音乐</li>
+					<li>电影</li>
+					<li>工作</li>
+				</ul>
+			</div>
+		</div>
+		<div class="header_line"></div>
+	</nav>
+	<div class="frame">
+		<div class="frame_left lf"></div>
+		<div class="frame_center lf">
+			<div class="contents">
+				<div class="ct_text">
+					<div class="title">Hibernate与MyBatis</div>
+					<div class="abstract">Hibernate 是当前最流行的O/R mapping框架，它出身于sf.net，现在已经成为Jboss的一部分。 Mybatis 是另外一种优秀的O/R mapping框架。目前属于apache的一个子项目。 <a href="https://wangwansan.github.io/qian/web/mhc.html">  &gt;&gt;详细</a></div>
+					<div class="bt">
+						<span class="rf">2018-01-29</span><span class="rf">发布时间:</span>
+						<div class="sp"></div>
+					</div>
+
+					<div class="ct_text">
+					<div class="title">谈谈你对MVC的理解</div>
+					<div class="abstract">MVC是Model—View—Controler的简称。即模型—视图—控制器。MVC是一种设计模式，它强制性的把应用程序的输入、处理和输出分开。 MVC中的模型、视图、控制器它们分别担负着不同的任务。 视图: 视图是用户看到并与之交互的界面。视图向用户显示相关的数据，并 <a href="https://wangwansan.github.io/qian/web/mvc.html">  &gt;&gt;详细</a></div>
+					<div class="bt">
+						<span class="rf">2018-01-27</span><span class="rf">发布时间:</span>
+						<div class="sp"></div>
+					</div>
+			</div>
+				<div class="ct_text">
+					<div class="title">powerdesigner的好处以及存在的意义</div>
+					<div class="abstract">第一，便于团队交流，一图抵万言。如果你不需要与他人交流，请参看下面一条。第二，便于做数据库设计，要知道数据库的设计不是一步到位的，有一个循环往复的过程。Powerdesigner有助于提高该过程的效率，也更容易设计出结构良好的数据库结构，全局和细节都一目了然，能不方便吗 <a href="https://wangwansan.github.io/qian/web/pd.html">  &gt;&gt;详细</a></div>
+					<div class="bt">
+						<span class="rf">2018-01-25</span><span class="rf">发布时间:</span>
+						<div class="sp"></div>
+					</div>
+			    </div>
+		</div>
+		<div class="frame_right lf"></div>
+	</div>
+
+	<div class="footer"></div>
+	<script type="text/javascript">
+		function getScrollTop(){   
+		    var scrollTop=0;   
+		    if(document.documentElement&&document.documentElement.scrollTop){   
+		        scrollTop=document.documentElement.scrollTop;   
+			    }else if(document.body){   
+			        scrollTop=document.body.scrollTop;   
+			    }   
+			    return scrollTop;   
+			}  
+
+
+			document.onscroll = function(){  
+		    	var hr = document.getElementsByClassName('header');
+			    if(getScrollTop()>50){
+			    	$('.header').css("position","fixed");
+			    }else{
+			    	$('.header').css("position","absolute");
+			    }
+			  
+			} 
+			  $(function(){
+			  	   var w = document.body.clientWidth;
+				   if(w < 1000){
+				   		$('.logo').css('font-size','16px');
+				   		$('.frame').css('width',w);
+				   		$('.frame_center').css({'width':0.9*w,'margin-left':0.05*w});
+				   		$('.frame_right').css('display','none');
+				   		$('.frame_left').css('display','none');
+				   }else{
+				   		$('.logo').css('font-size','24px');
+				   		$('.frame_right').css('display','');
+				   		$('.frame_left').css('display','');
+				   };
+
+
+				   $('.nav_menu > ul li').mouseenter(function(){
+				   		$(this).css({
+				   			'background-color':'rgba(0,0,0,0.3)',
+				   			'cursor':'pointer',
+				   			'width':'50px;',
+				   			'height':'48px',
+				   			'display':'inline-block',
+				   			'text-align':'center'
+				   			
+				   		});
+				   })
+				   $('.nav_menu > ul li').mouseout(function(){
+				   		$(this).css({
+				   			'background-color':'white'	
+				   		});
+				   });
+			  }) 
+	</script>
+</body>
+</html>
