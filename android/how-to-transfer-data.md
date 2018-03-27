@@ -8,16 +8,14 @@
 
 ### 新建一个工程，在MainActivity填写：
 
-  package com.shiyang.android_intent1;  
-  import android.content.Intent;  
-  import android.support.v7.app.AppCompatActivity;  
-  import android.os.Bundle;  
-  import android.view.View;  
-  import android.widget.Button;  
-
-  public class MainActivity extends AppCompatActivity {  
-
-    private Button button;  
+    package com.shiyang.android_intent1;  
+    import android.content.Intent;  
+    import android.support.v7.app.AppCompatActivity;  
+    import android.os.Bundle;  
+    import android.view.View;  
+    import android.widget.Button;  
+    public class MainActivity extends AppCompatActivity {  
+      private Button button;  
 
     @Override  
     protected void onCreate(Bundle savedInstanceState) {  
@@ -110,6 +108,7 @@
         }  
       
 ### OtherActivity:
+
     private TextView textView;  
     @Override  
     protected void onCreate(Bundle savedInstanceState) {  
@@ -131,7 +130,9 @@
 
         }  
     }  
- ### MyData:注意要继承序列化接口
+    
+### MyData:注意要继承序列化接口
+ 
      public class MyData implements Serializable {  
 
         public MyData(String name, int age) {  
@@ -219,6 +220,7 @@
   }  
   
 ### OtherActivity：
+
      public class OtherActivity extends AppCompatActivity {  
 
         private EditText resultEditText;  
