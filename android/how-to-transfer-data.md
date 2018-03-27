@@ -7,8 +7,8 @@
 我们想实现，在一个activity中点击一个按钮，将输入好的值显示在另个activity中。
 
 ### 新建一个工程，在MainActivity填写：
-  package com.shiyang.android_intent1;  
 
+  package com.shiyang.android_intent1;  
   import android.content.Intent;  
   import android.support.v7.app.AppCompatActivity;  
   import android.os.Bundle;  
@@ -17,26 +17,29 @@
 
   public class MainActivity extends AppCompatActivity {  
 
-      private Button button;  
+    private Button button;  
 
-      @Override  
-      protected void onCreate(Bundle savedInstanceState) {  
-          super.onCreate(savedInstanceState);  
-          setContentView(R.layout.activity_main);  
-          button = (Button)findViewById(R.id.button);  
-          button.setOnClickListener(new View.OnClickListener() {  
-              @Override  
-              public void onClick(View view) {  
-                  Intent intent = new Intent(MainActivity.this, OtherActivity.class);  
-                  intent.putExtra("name","Jack");//存放键值对   
-                  intent.putExtra("age",23);  
-                  intent.putExtra("address","sanya");  
-                  startActivity(intent);  
-              }  
-          });  
-      }  
+    @Override  
+    protected void onCreate(Bundle savedInstanceState) {  
+        super.onCreate(savedInstanceState);  
+        setContentView(R.layout.activity_main);  
+        button = (Button)findViewById(R.id.button);  
+        button.setOnClickListener(new View.OnClickListener() {  
+            @Override  
+            public void onClick(View view) {  
+                Intent intent = new Intent(MainActivity.this, OtherActivity.class);  
+                intent.putExtra("name","Jack");//存放键值对   
+                intent.putExtra("age",23);  
+                intent.putExtra("address","sanya");  
+                startActivity(intent);  
+            }  
+        });  
     }  
+  }  
+  
+ 
 ### 新建一个activity为OtherActivity，填写代码：
+
     package com.shiyang.android_intent1;  
 
     import android.content.Intent;  
@@ -62,9 +65,13 @@
 
         }  
     } 
+    
+
+
 ## 2.主要学习利用剪贴板传送数据， 病学会使用android的ObjectOutputStream嵌套ByteArrayOutputStream。使用Base64完成字节数组和String 的相互转换.
 
 ### MainActivity:
+
     private Button button;  
 
         @Override  
@@ -101,6 +108,7 @@
                 }  
             });  
         }  
+      
 ### OtherActivity:
     private TextView textView;  
     @Override  
