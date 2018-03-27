@@ -80,7 +80,7 @@
             button.setOnClickListener(new View.OnClickListener() {  
                 @Override  
                 public void onClick(View view) {  
-    //                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);  
+      /*              ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);  
     //                String name = "jack";  
     //                ClipData clipData = ClipData.newPlainText("new Plain Text Lable",name);  
     //                clipboardManager.setPrimaryClip(clipData);  
