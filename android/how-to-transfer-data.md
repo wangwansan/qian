@@ -168,7 +168,7 @@
 
 ## 3. 利用Intent的startActivityForResult方法传递数据。这里做个例子，一个activity的数据发送到另一个，另一个再返回回来。
 
- ### MainActivity：
+### MainActivity：
   
     public class MainActivity extends AppCompatActivity {  
       private final static int REQUEST_CODE = 1;  
