@@ -63,7 +63,8 @@
         }  
     } 
 ## 2.主要学习利用剪贴板传送数据， 病学会使用android的ObjectOutputStream嵌套ByteArrayOutputStream。使用Base64完成字节数组和String 的相互转换.
-MainActivity:
+
+### MainActivity:
     private Button button;  
 
         @Override  
@@ -157,10 +158,11 @@ MainActivity:
     }  
 
 ## 3. 利用Intent的startActivityForResult方法传递数据。这里做个例子，一个activity的数据发送到另一个，另一个再返回回来。
+
   ### MainActivity：
+  
     public class MainActivity extends AppCompatActivity {  
       private final static int REQUEST_CODE = 1;  
-
       private EditText oneEditText;  
       private EditText twoEditText;  
       private EditText resultEditText;  
@@ -241,7 +243,9 @@ MainActivity:
             });  
 
         }  
-    }  
+    } 
+    
+
 重点在于，MainActivity中的resultCode要和OtherActivity的setOnClickListener方法中的SetResult参数一致，这样返会MainActivity中就可以对应。
 ## 4. 使用静态变量：
 
