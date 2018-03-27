@@ -1,4 +1,5 @@
-## Android入门1_传递数据的几种方式 [原文](https://blog.csdn.net/qq_23156791/article/details/51734308)
+## Android入门1_传递数据的几种方式 
+####[原文](https://blog.csdn.net/qq_23156791/article/details/51734308)
 
 ### 1. 通过Intent的Intent.Extra方法传递数据。
 
